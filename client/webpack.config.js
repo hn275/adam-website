@@ -10,6 +10,7 @@ module.exports = {
   entry: "./src/index.tsx",
   devServer: {
     hot: true,
+    port: 3000,
   },
   target: "web",
   output: {

@@ -12,7 +12,7 @@
     "style-loader": "^3.3.1"
   },
   "scripts": {
-    "start": "webpack serve --hot --open",
+    "start": "webpack serve",
     "build": "webpack --config webpack.config.js --mode development"
   },
   "devDependencies": {
