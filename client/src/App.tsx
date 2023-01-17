@@ -1,7 +1,9 @@
-import "./App.css";
+import React from "react";
 
-function App() {
-  return <div className="App">Adam's OnlyFans</div>;
+export function App() {
+  return (
+    <div>
+      <h1>Adam's website</h1>
+    </div>
+  );
 }
-
-export default App;

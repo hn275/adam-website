@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+if ! [[ -s "./.env"  ]];then
+    echo "[WARNING] no .env variables exported, this may cause issues later."
+else
+    source ./.env && echo "[SOURCED] .env"
+fi
+
+air
