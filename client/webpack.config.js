@@ -46,6 +46,7 @@ module.exports = {
       },
       {
         test: /\.png|svg|jpg|gif$/,
+        exclude: [/^$/, /\.(js|mjs|jsx|ts|tsx)$/, /\.html$/, /\.json$/],
         use: ["file-loader"],
       },
     ],
