@@ -1,35 +1,40 @@
 import { useNavigate } from "react-router-dom";
 import { useScreenSize } from "modules/hooks";
 import { Drawer, Link, PAGE_LINKS } from "./components";
-import { Box, Flex, Text } from "@chakra-ui/react";
+import { Box, Center, Flex, Text } from "@chakra-ui/react";
+import { SearchBar } from "./components/SearchBar";
+import { CartIcon } from "./components/CartIcon";
 
 export function Nav() {
-  const renderLinks = () => {
-    return PAGE_LINKS.map((link, index) => (
-      <Link key={index} to={link.to}>
-        {link.content}
-      </Link>
-    ));
-  };
-
   const { screenSm, screenMd, screenLg } = useScreenSize();
   const nav = useNavigate();
 
   return (
     <Flex
-      position="relative"
-      justify="space-between"
+      as="nav"
+      justify="space-around"
       align="center"
-      py="0.4rem"
+      pt="0.6rem"
+      pb="0.4rem"
+      px="1rem"
       borderBottom="1px solid hsla(0deg, 0%, 0%, 5%)"
       bg="white"
     >
-      <Box>{screenLg ? renderLinks() : <div> </div>}</Box>
+      {screenLg && (
+        <Flex as="ul" gap="2.5rem">
+          {PAGE_LINKS.map((link) => {
+            return (
+              <li key={link.to}>
+                <Link to={link.to}>{link.content}</Link>
+              </li>
+            );
+          })}
+        </Flex>
+      )}
 
-      <Flex flexGrow={1} justify="center" align="center">
+      <Center flex={1}>
         <Text
-          p={0}
-          mt={2}
+          ml={screenLg ? 20 : 0}
           color="yellow.900"
           fontFamily="Marck Script;serifs"
           fontWeight="bold"
@@ -40,15 +45,16 @@ export function Nav() {
         >
           Johnson&Books
         </Text>
-      </Flex>
+      </Center>
 
       <Box>
         {screenSm || screenMd ? (
           <Drawer />
         ) : (
-          <Box>
-            <div>regularsiuzescreeen shit</div>
-          </Box>
+          <Flex align="center" gap="1rem">
+            <SearchBar />
+            <CartIcon />
+          </Flex>
         )}
       </Box>
     </Flex>

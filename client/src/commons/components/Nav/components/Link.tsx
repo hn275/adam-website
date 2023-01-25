@@ -5,7 +5,7 @@ import "./styles.css";
 interface PropType {
   to: string;
   children: React.ReactNode;
-  handleClick: () => void;
+  handleClick?: () => void;
 }
 
 export const Link = ({ to, children, handleClick }: PropType) => {
@@ -13,7 +13,7 @@ export const Link = ({ to, children, handleClick }: PropType) => {
     <NavLink
       style={({ isActive }) => ({ fontWeight: isActive ? "bold" : "normal" })}
       to={to}
-      onClick={handleClick}
+      onClick={handleClick ? handleClick : () => null}
     >
       <CUILink className="nav_link__content">
         <Text>{children}</Text>

@@ -9,15 +9,13 @@ import {
   Button,
   useDisclosure,
   VStack,
-  Input,
-  InputGroup,
-  InputLeftElement,
   Divider,
   Flex,
   Text,
 } from "@chakra-ui/react";
-import { Search2Icon, ChevronRightIcon } from "@chakra-ui/icons";
+import { ChevronRightIcon } from "@chakra-ui/icons";
 import { Link, PAGE_LINKS } from "./Link";
+import { SearchBar } from "./SearchBar";
 import { RiMenu4Fill } from "react-icons/ri";
 import { BsCart2 } from "react-icons/bs";
 import { useCartCtx } from "modules/hooks";
@@ -38,7 +36,6 @@ export const Drawer = () => {
         aria-label="menu"
         position="absolute"
         right="1rem"
-        top="50%"
         style={{ transform: "translateY(-50%)" }}
       >
         <Icon as={RiMenu4Fill} size="1em" />
@@ -55,18 +52,7 @@ export const Drawer = () => {
 
           <DrawerBody>
             {/* Search bar */}
-            <InputGroup>
-              <InputLeftElement
-                pointerEvents="none"
-                children={<Search2Icon color="gray.500" />}
-              />
-              <Input
-                placeholder="Search anything..."
-                color="gray.700"
-                variant="filled"
-                pt={2}
-              />
-            </InputGroup>
+            <SearchBar />
 
             {/* Links */}
             <VStack as="ul" align="left" gap="1rem" mt="3rem" ml="2rem">
