@@ -1,7 +1,9 @@
 import { useNavigate } from "react-router-dom";
 import { useScreenSize } from "modules/hooks";
-import { Drawer, Link, PAGE_LINKS } from "./components";
+
 import { Box, Center, Flex, Text } from "@chakra-ui/react";
+import { Link, PAGE_LINKS } from "./components/Link";
+import { Drawer } from "./components/Drawer";
 import { SearchBar } from "./components/SearchBar";
 import { CartIcon } from "./components/CartIcon";
 
