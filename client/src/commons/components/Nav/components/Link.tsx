@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
-import { Text } from "@chakra-ui/react";
+import { Text, Link as CUILink } from "@chakra-ui/react";
+import "./styles.css";
 
 interface PropType {
   to: string;
@@ -9,8 +10,14 @@ interface PropType {
 
 export const Link = ({ to, children, handleClick }: PropType) => {
   return (
-    <NavLink to={to} onClick={handleClick}>
-      <Text>{children}</Text>
+    <NavLink
+      style={({ isActive }) => ({ fontWeight: isActive ? "bold" : "normal" })}
+      to={to}
+      onClick={handleClick}
+    >
+      <CUILink className="nav_link__content">
+        <Text>{children}</Text>
+      </CUILink>
     </NavLink>
   );
 };

@@ -37,8 +37,9 @@ export const Drawer = () => {
         bg="transparent"
         aria-label="menu"
         position="absolute"
-        right="3px"
-        top="3px"
+        right="1rem"
+        top="50%"
+        style={{ transform: "translateY(-50%)" }}
       >
         <Icon as={RiMenu4Fill} size="1em" />
       </Button>
@@ -63,10 +64,12 @@ export const Drawer = () => {
                 placeholder="Search anything..."
                 color="gray.700"
                 variant="filled"
+                pt={2}
               />
             </InputGroup>
+
             {/* Links */}
-            <VStack as="ul" align="start" gap="1rem" mt="3rem">
+            <VStack as="ul" align="left" gap="1rem" mt="3rem" ml="2rem">
               {PAGE_LINKS.map((link) => {
                 return (
                   <li key={link.to}>
@@ -80,12 +83,14 @@ export const Drawer = () => {
 
             <Divider my="3rem" color="gray.200" />
 
+            {/* Buttons */}
             <Flex direction="column" gap={3}>
-              <Button colorScheme="blue">Link to checkout page</Button>
               <Button
                 variant="outline"
                 onClick={onClose}
-                leftIcon={<Icon as={BsCart2} />}
+                leftIcon={<Icon mb={2} as={BsCart2} />}
+                pt={1}
+                color="gray.600"
               >
                 View cart&nbsp;
                 {cartItems.length !== 0 ? (
@@ -93,6 +98,11 @@ export const Drawer = () => {
                     ({cartItems.length})
                   </Text>
                 ) : null}
+              </Button>
+
+              <Button bg="yellow.900" color="white" pt={1}>
+                Checkout
+                {/* Link to checkout page */}
               </Button>
             </Flex>
           </DrawerBody>
