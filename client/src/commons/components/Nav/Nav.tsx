@@ -1,14 +1,7 @@
-import { NavLink, NavLinkProps } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useScreenSize } from "modules/hooks";
-import { Drawer, Link } from "./components";
-// @ts-ignore
+import { Drawer, Link, PAGE_LINKS } from "./components";
 import { Box, Flex, Text } from "@chakra-ui/react";
-
-const PAGE_LINKS = [
-  { to: "/", content: "Home" },
-  { to: "/services", content: "Services" },
-  { to: "/about", content: "About" },
-];
 
 export function Nav() {
   const renderLinks = () => {
@@ -20,13 +13,33 @@ export function Nav() {
   };
 
   const { screenSm, screenMd, screenLg } = useScreenSize();
+  const nav = useNavigate();
 
   return (
-    <Flex position="relative" justify="space-between" align="center">
+    <Flex
+      position="relative"
+      justify="space-between"
+      align="center"
+      py="0.4rem"
+      borderBottom="1px solid hsla(0deg, 0%, 0%, 5%)"
+      bg="white"
+    >
       <Box>{screenLg ? renderLinks() : <div> </div>}</Box>
 
       <Flex flexGrow={1} justify="center" align="center">
-        <Text>Johnson&Books</Text>
+        <Text
+          p={0}
+          mt={2}
+          color="yellow.900"
+          fontFamily="Marck Script;serifs"
+          fontWeight="bold"
+          fontSize="2xl"
+          letterSpacing="wide"
+          cursor="pointer"
+          onClick={() => nav("/")}
+        >
+          Johnson&Books
+        </Text>
       </Flex>
 
       <Box>
