@@ -21,23 +21,12 @@ import { Link, PAGE_LINKS } from "./Link";
 import { RiMenu4Fill } from "react-icons/ri";
 import { BsCart2 } from "react-icons/bs";
 import { useCartCtx } from "modules/hooks";
-import { useEffect } from "react";
 
 export const Drawer = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const { cart, cartDispatch, total } = useCartCtx();
-
-  useEffect(() => {
-    cartDispatch({
-      type: "cart/addItem",
-      payload: { id: 1, quantity: 1, costPerItem: 12 },
-    });
-    console.log(total);
-  }, []);
-
-  useEffect(() => {
-    cart.forEach((t) => console.log(t));
-  }, [cart]);
+  const {
+    cart: { cartItems },
+  } = useCartCtx();
 
   return (
     <>
@@ -99,9 +88,9 @@ export const Drawer = () => {
                 leftIcon={<Icon as={BsCart2} />}
               >
                 View cart&nbsp;
-                {cart.length !== 0 ? (
+                {cartItems.length !== 0 ? (
                   <Text color="gray.400" fontWeight="normal" fontSize="sm">
-                    ({cart.length})
+                    ({cartItems.length})
                   </Text>
                 ) : null}
               </Button>
