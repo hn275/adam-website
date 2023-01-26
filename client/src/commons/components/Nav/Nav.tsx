@@ -21,6 +21,8 @@ export function Nav() {
       px="1rem"
       borderBottom="1px solid hsla(0deg, 0%, 0%, 5%)"
       bg="white"
+      position="sticky"
+      top={0}
     >
       {screenLg && (
         <Flex as="ul" gap="2.5rem">
