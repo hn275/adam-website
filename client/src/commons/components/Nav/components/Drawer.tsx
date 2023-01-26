@@ -86,7 +86,7 @@ export const Drawer = () => {
                 ) : null}
               </Button>
 
-              <Button bg="yellow.900" color="white" pt={1}>
+              <Button bg="brand.main" color="white" pt={1}>
                 Checkout
                 {/* Link to checkout page */}
               </Button>

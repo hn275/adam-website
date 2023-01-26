@@ -11,7 +11,9 @@ interface PropType {
 export const Link = ({ to, children, handleClick }: PropType) => {
   return (
     <NavLink
-      style={({ isActive }) => ({ fontWeight: isActive ? "bold" : "normal" })}
+      style={({ isActive }) => ({
+        fontWeight: isActive ? "bold" : "normal",
+      })}
       to={to}
       onClick={handleClick ? handleClick : () => null}
     >

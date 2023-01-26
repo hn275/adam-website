@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useScreenSize } from "modules/hooks";
 
-import { Box, Center, Flex, Text } from "@chakra-ui/react";
+import { Box, Flex, Text } from "@chakra-ui/react";
 import { Link, PAGE_LINKS } from "./components/Link";
 import { Drawer } from "./components/Drawer";
 import { SearchBar } from "./components/SearchBar";
@@ -14,10 +14,10 @@ export function Nav() {
   return (
     <Flex
       as="nav"
-      justify="space-around"
+      justify="space-between"
       align="center"
-      pt="0.6rem"
-      pb="0.4rem"
+      pt="0.8rem"
+      pb="0.6rem"
       px="1rem"
       borderBottom="1px solid hsla(0deg, 0%, 0%, 5%)"
       bg="white"
@@ -36,20 +36,23 @@ export function Nav() {
         </Flex>
       )}
 
-      <Center flex={1}>
-        <Text
-          ml={screenLg ? 20 : 0}
-          color="yellow.900"
-          fontFamily="Marck Script;serifs"
-          fontWeight="bold"
-          fontSize="2xl"
-          letterSpacing="wide"
-          cursor="pointer"
-          onClick={() => nav("/")}
-        >
-          Johnson&Books
-        </Text>
-      </Center>
+      <Text
+        color="brand.main"
+        fontFamily="Marck Script;serifs"
+        fontWeight="bold"
+        fontSize="2xl"
+        letterSpacing="wide"
+        cursor="pointer"
+        onClick={() => nav("/")}
+        style={{
+          position: "absolute",
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%,-45%)",
+        }}
+      >
+        Johnson&Books
+      </Text>
 
       <Box>
         {screenSm || screenMd ? (
