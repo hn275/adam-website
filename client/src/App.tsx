@@ -5,7 +5,7 @@ import "./reset.css";
 
 export function App() {
   return (
-    <>
+    <body>
       <Nav />
 
       <Routes>
@@ -13,6 +13,6 @@ export function App() {
         <Route path="/about" element={<AboutPage />} />
         <Route path="/services" element={<ServicePage />} />
       </Routes>
-    </>
+    </body>
   );
 }
