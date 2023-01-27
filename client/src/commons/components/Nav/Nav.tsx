@@ -18,6 +18,7 @@ export function Nav() {
       align="center"
       pt="0.8rem"
       pb="0.6rem"
+      h={screenSm ? "3rem" : ""}
       px="1rem"
       borderBottom="1px solid hsla(0deg, 0%, 0%, 5%)"
       bg="white"
