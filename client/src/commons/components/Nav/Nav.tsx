@@ -23,6 +23,7 @@ export function Nav() {
       bg="white"
       position="sticky"
       top={0}
+      zIndex={999}
     >
       {screenLg && (
         <Flex as="ul" gap="2.5rem">

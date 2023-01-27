@@ -1,3 +1,7 @@
 .nav_link__link.active .nav_link__content {
   font-weight: 600;
 }
+
+.nav_link__content:hover {
+  text-decoration: underline;
+}
