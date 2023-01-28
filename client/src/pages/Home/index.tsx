@@ -1,5 +1,5 @@
-import { Hero, Climbing } from "./components";
-import { Box, Center, Heading } from "@chakra-ui/react";
+import { Hero, Climbing, WoodWorking, Printing } from "./components";
+import { Box, Center, Heading, Flex } from "@chakra-ui/react";
 
 export function HomePage() {
   return (
@@ -14,9 +14,11 @@ export function HomePage() {
         </Center>
       </Box>
 
-      <Box id="features" as="section" px={10}>
+      <Flex id="features" as="section" px={10} direction="column" gap={10}>
         <Climbing />
-      </Box>
+        <WoodWorking />
+        <Printing />
+      </Flex>
     </>
   );
 }
