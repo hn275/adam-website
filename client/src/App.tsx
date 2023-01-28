@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import { HomePage, AboutPage, ServicePage } from "pages";
-import { Nav } from "commons/components";
+import { Nav } from "modules/components";
 import "./reset.css";
 import "./globals.css";
 
