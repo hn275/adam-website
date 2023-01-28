@@ -18,7 +18,7 @@ import { AnimatePresence, motion } from "framer-motion";
 interface PropType {
   id: number;
   image: string;
-  heading: string;
+  item: string;
   description: string;
   price: number;
 }
@@ -26,7 +26,7 @@ interface PropType {
 export function ShowcaseCard({
   id,
   image,
-  heading,
+  item,
   description,
   price,
 }: PropType) {
@@ -49,7 +49,7 @@ export function ShowcaseCard({
 
           <Stack mt="6" spacing="3">
             <Heading size="md" color="brand.main">
-              {heading}
+              {item}
             </Heading>
 
             <Text>{description}</Text>
@@ -89,7 +89,7 @@ export function ShowcaseCard({
               zIndex: 999,
             }}
           >
-            <Alert itemName={heading} />
+            <Alert itemName={item} />
           </motion.div>
         )}
       </AnimatePresence>

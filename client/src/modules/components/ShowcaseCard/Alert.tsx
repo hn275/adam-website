@@ -3,7 +3,6 @@ import {
   AlertIcon,
   AlertTitle,
   AlertDescription,
-  Button,
 } from "@chakra-ui/react";
 
 interface PropType {
@@ -15,11 +14,8 @@ export const Alert = ({ itemName }: PropType) => {
     <CuiAlert status="success" w="max-content" borderRadius="lg">
       <AlertIcon />
 
-      <AlertTitle pt={1}>{itemName} Added to cart!</AlertTitle>
-
-      <AlertDescription>
-        <Button>View cart now</Button>
-      </AlertDescription>
+      <AlertTitle pt={1}>Success!</AlertTitle>
+      <AlertDescription pt={1}>{itemName} added to cart!</AlertDescription>
     </CuiAlert>
   );
 };
