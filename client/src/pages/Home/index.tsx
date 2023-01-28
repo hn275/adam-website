@@ -1,5 +1,6 @@
-import { Hero, Climbing, WoodWorking, Printing } from "./components";
+import { Hero, FeatureDisplay } from "./components";
 import { Box, Center, Heading, Flex } from "@chakra-ui/react";
+import { mockData } from "./util/content";
 
 export function HomePage() {
   return (
@@ -15,10 +16,14 @@ export function HomePage() {
       </Box>
 
       <Flex id="features" as="section" px={10} direction="column" gap={10}>
-        <Climbing />
-        <WoodWorking />
-        <Printing />
+        {mockData.map((s) => {
+          return <FeatureDisplay heading={s.section} products={s.products} />;
+        })}
       </Flex>
+
+      <Box id="footer" as="section" bg="black">
+        sflkasdjf
+      </Box>
     </>
   );
 }

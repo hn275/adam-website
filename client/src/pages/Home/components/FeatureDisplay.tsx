@@ -1,4 +1,4 @@
-import { Box, Flex, Heading } from "@chakra-ui/react";
+import { Box, Heading, Wrap, WrapItem } from "@chakra-ui/react";
 import { Product } from "modules/api/types";
 import { ShowcaseCard } from "modules/components";
 
@@ -9,24 +9,27 @@ interface PropType {
 
 export const FeatureDisplay = ({ heading, products }: PropType) => {
   return (
-    <Box as="section" id="wood-working">
-      <Heading fontSize="xx-large" pb={3} as="h2">
+    <Box as="section" id={heading.toLowerCase().replace(" ", "-")}>
+      <Heading fontSize="xx-large" pb={3} ml="1rem" as="h2">
         {heading}
       </Heading>
 
-      <Flex>
+      <Wrap spacing={10} justify="center">
         {products.map((item) => {
           return (
-            <ShowcaseCard
-              id={item.productID}
-              image={item.productImage}
-              item={item.productName}
-              description={item.productDesc}
-              price={item.productPrice}
-            />
+            <WrapItem key={item.productID}>
+              <ShowcaseCard
+                key={item.productID}
+                id={item.productID}
+                image={item.productImage}
+                item={item.productName}
+                description={item.productDesc}
+                price={item.productPrice}
+              />
+            </WrapItem>
           );
         })}
-      </Flex>
+      </Wrap>
     </Box>
   );
 };

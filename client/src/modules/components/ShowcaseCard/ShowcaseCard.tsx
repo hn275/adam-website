@@ -43,7 +43,7 @@ export function ShowcaseCard({
 
   return (
     <>
-      <Card maxW="sm">
+      <Card maxW="xs">
         <CardBody>
           <Image loading="lazy" src={image} borderRadius="lg" />
 
