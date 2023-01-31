@@ -1,10 +1,12 @@
 import { Box, Heading, Slide } from "@chakra-ui/react";
 import { AnimatePresence, motion } from "framer-motion";
+import { CartItem } from "./CartItem";
 import { useCartCtx } from "modules/hooks";
+
 export const CartDrawer = () => {
   const {
     cartDispatch,
-    cart: { isOpen },
+    cart: { isOpen, cartItems },
   } = useCartCtx();
 
   const onToggle = () => cartDispatch({ type: "cart/toggle" });
@@ -14,6 +16,12 @@ export const CartDrawer = () => {
       <Slide direction="bottom" in={isOpen} style={{ zIndex: 999 }}>
         <Box bg="orange.50" p="2rem">
           <Heading>What's in the cart?</Heading>
+
+          <Box>
+            {cartItems.map((item) => {
+              return <CartItem key={item.id} item={item} />;
+            })}
+          </Box>
         </Box>
       </Slide>
 
