@@ -6,7 +6,7 @@ import "./style.css";
 
 export const CartIcon = () => {
   const {
-    cart: { cartItems, isOpen },
+    cart: { cartItems },
     cartDispatch,
   } = useCartCtx();
 
@@ -28,6 +28,7 @@ export const CartIcon = () => {
             ></motion.div>
           )}
         </AnimatePresence>
+
         <Icon
           color={cartItems.length !== 0 ? "gray.600" : "gray.400"}
           as={BsCart2}
@@ -36,18 +37,6 @@ export const CartIcon = () => {
           onClick={onToggle}
         />
       </Grid>
-
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            className="cart-overlay"
-            onClick={onToggle}
-            initial={{ opacity: 0, backdropFilter: "blur(0px)" }}
-            animate={{ opacity: 1, backdropFilter: "blur(1px)" }}
-            exit={{ opacity: 0, backdropFilter: "blur(0px)" }}
-          ></motion.div>
-        )}
-      </AnimatePresence>
     </>
   );
 };

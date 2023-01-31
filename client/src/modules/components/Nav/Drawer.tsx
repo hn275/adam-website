@@ -7,11 +7,11 @@ import {
   DrawerCloseButton,
   Icon,
   Button,
-  useDisclosure,
   VStack,
   Divider,
   Flex,
   Text,
+  useDisclosure,
 } from "@chakra-ui/react";
 import { ChevronRightIcon } from "@chakra-ui/icons";
 import { Link, PAGE_LINKS } from "./Link";
