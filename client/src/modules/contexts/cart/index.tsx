@@ -5,6 +5,7 @@ import type { CartStateType, CartContextType } from "./types";
 const init: CartStateType = {
   cartItems: [],
   cartTotal: 0,
+  isOpen: false,
 };
 
 const CartContext = createContext<CartContextType>({} as CartContextType);

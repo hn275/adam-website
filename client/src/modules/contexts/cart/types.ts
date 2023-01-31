@@ -12,6 +12,7 @@ export interface CartItem {
 export type CartStateType = {
   cartItems: CartItem[];
   cartTotal: number;
+  isOpen: boolean;
 };
 
 // dispatch
@@ -29,7 +30,15 @@ interface UpdateCartTotal {
   type: "cart/updateTotal";
 }
 
-export type CartDispathType = AddToCart | RemoveFromCart | UpdateCartTotal;
+interface ToggleCart {
+  type: "cart/toggle";
+}
+
+export type CartDispathType =
+  | AddToCart
+  | RemoveFromCart
+  | UpdateCartTotal
+  | ToggleCart;
 
 export interface CartContextType {
   cart: CartStateType;

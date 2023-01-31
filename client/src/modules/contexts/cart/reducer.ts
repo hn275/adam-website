@@ -7,6 +7,11 @@ export default (
   const { cartItems } = state;
 
   switch (action.type) {
+    case "cart/toggle": {
+      const isOpen = !state.isOpen;
+      return { ...state, isOpen };
+    }
+
     case "cart/addItem": {
       const itemIndex = cartItems.findIndex(
         (item) => item.id === action.payload.id
