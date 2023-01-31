@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { Text, useTheme } from "@chakra-ui/react";
-import "./styles.css";
+import "./style.css";
 
 interface PropType {
   to: string;

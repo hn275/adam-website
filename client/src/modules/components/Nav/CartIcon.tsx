@@ -2,15 +2,18 @@ import { BsCart2 } from "react-icons/bs";
 import { Grid, Icon } from "@chakra-ui/react";
 import { useCartCtx } from "modules/hooks";
 import { AnimatePresence, motion } from "framer-motion";
+import "./style.css";
 
-interface PropType {
-  handleClick: () => void;
-}
-
-export const CartIcon = ({ handleClick }: PropType) => {
+export const CartIcon = () => {
   const {
-    cart: { cartItems },
+    cart: { cartItems, isOpen },
+    cartDispatch,
   } = useCartCtx();
+
+  const onToggle = () => {
+    cartDispatch({ type: "cart/toggle" });
+  };
+
   return (
     <>
       <Grid placeItems="center" position="relative">
@@ -30,9 +33,21 @@ export const CartIcon = ({ handleClick }: PropType) => {
           as={BsCart2}
           cursor="pointer"
           aria-label="cart"
-          onClick={handleClick}
+          onClick={onToggle}
         />
       </Grid>
+
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            className="cart-overlay"
+            onClick={onToggle}
+            initial={{ opacity: 0, backdropFilter: "blur(0px)" }}
+            animate={{ opacity: 1, backdropFilter: "blur(1px)" }}
+            exit={{ opacity: 0, backdropFilter: "blur(0px)" }}
+          ></motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 };

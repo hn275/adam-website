@@ -2,10 +2,10 @@ import { useNavigate } from "react-router-dom";
 import { useScreenSize } from "modules/hooks";
 
 import { Box, Flex, Text } from "@chakra-ui/react";
-import { Link, PAGE_LINKS } from "./components/Link";
-import { Drawer } from "./components/Drawer";
-import { SearchBar } from "./components/SearchBar";
-import { Cart } from "./components/Cart";
+import { Link, PAGE_LINKS } from "./Link";
+import { Drawer } from "./Drawer";
+import { SearchBar } from "./SearchBar";
+import { CartIcon } from "./CartIcon";
 
 export function Nav() {
   const { screenSm, screenMd, screenLg } = useScreenSize();
@@ -62,7 +62,7 @@ export function Nav() {
         ) : (
           <Flex align="center" gap="1rem">
             <SearchBar />
-            <Cart />
+            <CartIcon />
           </Flex>
         )}
       </Box>

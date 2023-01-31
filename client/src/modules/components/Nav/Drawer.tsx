@@ -24,7 +24,13 @@ export const Drawer = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const {
     cart: { cartItems },
+    cartDispatch,
   } = useCartCtx();
+
+  const handleClick = () => {
+    cartDispatch({ type: "cart/toggle" });
+    onClose();
+  };
 
   return (
     <>
@@ -73,7 +79,7 @@ export const Drawer = () => {
             <Flex direction="column" gap={3}>
               <Button
                 variant="outline"
-                onClick={onClose}
+                onClick={handleClick}
                 leftIcon={<Icon mb={2} as={BsCart2} />}
                 pt={1}
                 color="gray.600"
