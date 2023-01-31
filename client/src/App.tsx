@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import { HomePage, AboutPage, ServicePage } from "pages";
+import { HomePage, AboutPage, ServicePage, CheckoutPage } from "pages";
 import { Nav } from "modules/components";
 import "./reset.css";
 import "./globals.css";
@@ -13,6 +13,7 @@ export function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/services" element={<ServicePage />} />
+        <Route path="/checkout" element={<CheckoutPage />} />
       </Routes>
     </>
   );

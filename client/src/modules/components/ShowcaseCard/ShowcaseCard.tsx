@@ -36,7 +36,13 @@ export function ShowcaseCard({
   const handleAddToCart = () => {
     cartDispatch({
       type: "cart/addItem",
-      payload: { id, quantity: 1, costPerItem: price },
+      payload: {
+        id,
+        quantity: 1,
+        costPerItem: price,
+        title: item,
+        description,
+      },
     });
     onOpen();
   };

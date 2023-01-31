@@ -3,17 +3,17 @@ import { Grid, Icon } from "@chakra-ui/react";
 import { useCartCtx } from "modules/hooks";
 import { AnimatePresence, motion } from "framer-motion";
 
-export const CartIcon = () => {
+interface PropType {
+  handleClick: () => void;
+}
+
+export const CartIcon = ({ handleClick }: PropType) => {
   const {
     cart: { cartItems },
   } = useCartCtx();
   return (
     <>
-      <Grid
-        placeItems="center"
-        position="relative"
-        style={{ isolation: "isolate" }}
-      >
+      <Grid placeItems="center" position="relative">
         <AnimatePresence>
           {cartItems.length !== 0 && (
             <motion.div
@@ -26,11 +26,11 @@ export const CartIcon = () => {
           )}
         </AnimatePresence>
         <Icon
-          style={{ zIndex: 1 }}
           color={cartItems.length !== 0 ? "gray.600" : "gray.400"}
           as={BsCart2}
           cursor="pointer"
           aria-label="cart"
+          onClick={handleClick}
         />
       </Grid>
     </>

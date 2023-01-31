@@ -5,7 +5,7 @@ import { Box, Flex, Text } from "@chakra-ui/react";
 import { Link, PAGE_LINKS } from "./components/Link";
 import { Drawer } from "./components/Drawer";
 import { SearchBar } from "./components/SearchBar";
-import { CartIcon } from "./components/CartIcon";
+import { Cart } from "./components/Cart";
 
 export function Nav() {
   const { screenSm, screenMd, screenLg } = useScreenSize();
@@ -24,7 +24,7 @@ export function Nav() {
       bg="white"
       position="sticky"
       top={0}
-      zIndex={999}
+      zIndex={10}
     >
       {screenLg && (
         <Flex as="ul" gap="2.5rem">
@@ -62,7 +62,7 @@ export function Nav() {
         ) : (
           <Flex align="center" gap="1rem">
             <SearchBar />
-            <CartIcon />
+            <Cart />
           </Flex>
         )}
       </Box>

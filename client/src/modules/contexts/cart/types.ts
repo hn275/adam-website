@@ -4,6 +4,8 @@ export interface CartItem {
   id: number;
   quantity: number;
   costPerItem: number;
+  title: string;
+  description: string;
 }
 
 // state
