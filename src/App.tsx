@@ -1,8 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import { HomePage, AboutPage, ServicePage, CheckoutPage } from "pages";
 import { Nav } from "modules/components";
-import "./reset.css";
-import "./globals.css";
+import "./index.css";
 
 export function App() {
   return (
