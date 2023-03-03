@@ -1,5 +1,4 @@
 import { NavLink } from "react-router-dom";
-import { Text, useTheme } from "@chakra-ui/react";
 import "./style.css";
 
 interface PropType {
@@ -9,25 +8,21 @@ interface PropType {
 }
 
 export const Link = ({ to, children, handleClick }: PropType) => {
-  const { colors } = useTheme();
   return (
-    <Text className="nav_link__content">
-      <NavLink
-        style={({ isActive }) => ({
-          fontWeight: isActive ? "600" : "normal",
-          color: isActive ? colors.brand.main : "",
-        })}
-        to={to}
-        onClick={handleClick ? handleClick : () => null}
-      >
-        {children}
-      </NavLink>
-    </Text>
+    <NavLink
+      style={({ isActive }) => ({
+        fontWeight: isActive ? "600" : "normal",
+      })}
+      to={to}
+      onClick={handleClick ? handleClick : () => null}
+    >
+      {children}
+    </NavLink>
   );
 };
 
 export const PAGE_LINKS = [
-  { to: "/", content: "Home" },
-  { to: "/services", content: "Services" },
-  { to: "/about", content: "About" },
+  { id: 1, to: "/", content: "Home" },
+  { id: 2, to: "/services", content: "Services" },
+  { id: 3, to: "/about", content: "About" },
 ];

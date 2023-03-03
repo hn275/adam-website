@@ -1,5 +1,5 @@
-import { Search2Icon } from "@chakra-ui/icons";
 import { Input, InputGroup, InputLeftElement } from "@chakra-ui/react";
+import { MdSearch } from "react-icons/md";
 import { useEffect, useRef, useState } from "react";
 
 export const SearchBar = () => {
@@ -28,7 +28,7 @@ export const SearchBar = () => {
     <InputGroup>
       <InputLeftElement
         pointerEvents="none"
-        children={<Search2Icon color={iconColor} />}
+        children={<MdSearch className="text-gray-400" />}
       />
       <Input
         ref={inputRef}

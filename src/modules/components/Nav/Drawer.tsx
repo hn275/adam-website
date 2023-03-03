@@ -13,10 +13,10 @@ import {
   Text,
   useDisclosure,
 } from "@chakra-ui/react";
-import { ChevronRightIcon } from "@chakra-ui/icons";
 import { Link, PAGE_LINKS } from "./Link";
 import { SearchBar } from "./SearchBar";
 import { RiMenu4Fill } from "react-icons/ri";
+import { MdClose } from "react-icons/md";
 import { BsCart2 } from "react-icons/bs";
 import { useCartCtx } from "modules/hooks";
 
@@ -34,25 +34,20 @@ export const Drawer = () => {
 
   return (
     <>
-      <Button
+      <button
         onClick={onOpen}
-        p={0}
-        m={0}
-        bg="transparent"
+        className="bg-transparent absolute top-0"
         aria-label="menu"
-        position="absolute"
-        right="1rem"
-        style={{ transform: "translateY(-50%)" }}
       >
         <Icon as={RiMenu4Fill} size="1em" />
-      </Button>
+      </button>
 
       <ChakraDrawer isOpen={isOpen} placement="right" onClose={onClose}>
         <DrawerOverlay />
         <DrawerContent>
           <DrawerHeader mb="1rem">
             <DrawerCloseButton size="lg">
-              <ChevronRightIcon />
+              <MdClose />
             </DrawerCloseButton>
           </DrawerHeader>
 
